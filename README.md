@@ -1,8 +1,8 @@
-<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/content/HBTN-hbnb-Final.png" style="height:60%;width:auto;float:center;" />
-# The AirBnB clone project: **Phase 1** 
+<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/content/HBTN-hbnb-Final.png" style="height:250px;width:auto;float:right;" />
+# The AirBnB clone project: Project 1
 > The Console :computer:
 
-##Description
+## Description
 Part of a 4-month, web application project designed to cover the fundamental concepts of higher level programming;
 this first step implements a command interpreter (aka console, shell, CLI) to manage the objects of our project.
 
@@ -13,12 +13,13 @@ this first step implements a command interpreter (aka console, shell, CLI) to ma
   * __python:__ PEP 8 (v. 1.7.0)
   * __bash:__ ShellCheck 0.3.3
 
-##Setup
+## Setup
 
-##Testing
+## Testing
 
-##Execution
+## Execution
+---
 
-##Authors
-* Nick Boutboul, [Raid55] (https://github.com/Raid55) | [@_Raid55] (https://twitter.com/_Raid55) 
-* James Heck, [notjamesheck] (https://github.com/notjamesheck) | [@notjamesheck] (https://twitter.com/notjamesheck)
+## Authors
+* Nick Boutboul, [Raid55] (https://github.com/Raid55/) | [@_Raid55] (https://twitter.com/_Raid55/) 
+* James Heck, [notjamesheck] (https://github.com/notjamesheck/) | [@notjamesheck] (https://twitter.com/notjamesheck/)
