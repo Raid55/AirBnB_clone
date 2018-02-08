@@ -1,5 +1,7 @@
-<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/content/HBTN-hbnb-Final.png" style="height:250px;width:auto;float:right;" />
-# The AirBnB clone project: Project 1
+<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/content/HBTN-hbnb-Final.png" height="250" width=auto />
+
+# The AirBnB clone project: Part 1
+
 > The Console :computer:
 
 ## Description
