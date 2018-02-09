@@ -1,0 +1,4 @@
+# This file lists all individuals having contributed content to the repository.
+# It is generated using the script: git log --format='%aN <%aE>' | sort -f | uniq
+Nicholas Boutboul <boutboulnicholas@gmail.com>
+James Heck <224@holbertonschool.com>
