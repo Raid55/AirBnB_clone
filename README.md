@@ -23,5 +23,5 @@ this first step implements a command interpreter (aka console, shell, CLI) to ma
 ---
 
 ## Authors
-* Nick Boutboul, [Raid55] (https://github.com/Raid55/) | [@_Raid55] (https://twitter.com/_Raid55/) 
-* James Heck, [notjamesheck] (https://github.com/notjamesheck/) | [@notjamesheck] (https://twitter.com/notjamesheck/)
+* Nick Boutboul, [**Raid55**](https://github.com/Raid55/) | [**@_Raid55**](https://twitter.com/_Raid55/) 
+* James Heck, [**notjamesheck**](https://github.com/notjamesheck/) | [**@notjamesheck**](https://twitter.com/notjamesheck/)
