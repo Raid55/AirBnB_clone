@@ -9,18 +9,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         'Creates and saves a new object ex. $ create MyModel'
-        objname = None
         if args == '':
             print("** class name missing **")
             return
-        for obj in args.split():
-            try:
-                inst = HBNBCommand.__ObjList[HBNBCommand.__ObjList.index(obj)]
-            except ValueError:
-                inst = None
-                pass
-        if inst is not None:
-            tmpObj = eval(inst)()
+        objName = HBNBCommand.parseCheck_ForClass(args)
+        if objName is not None:
+            tmpObj = eval(objName)()
             print(tmpObj.id)
             tmpObj.save()
         else:
@@ -34,9 +28,16 @@ class HBNBCommand(cmd.Cmd):
         'Quit command to exit the program'
         return True
 
-    def parse(arg):
+    def parseCheck_ForClass(args):
         'Convert a series of zero or more numbers to an argument tuple'
-        return tuple(map(int, arg.split()))
+        tmp = None
+        for obj in args.split():
+            try:
+                tmp = HBNBCommand.__ObjList[HBNBCommand.__ObjList.index(obj)]
+            except ValueError:
+                tmp = None
+                pass
+        return tmp
 
 
 
