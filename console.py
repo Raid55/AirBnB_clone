@@ -4,13 +4,15 @@ import cmd
 import sys
 import inspect
 import models
+import re
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """ Cmd line interpreter for Hbnbn Proj """
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
     __ObjList = [n for n, o, in inspect.getmembers(
         sys.modules[__name__],
         inspect.isclass
@@ -104,11 +106,11 @@ class HBNBCommand(cmd.Cmd):
                 if args.split()[2] != "id" and \
                     args.split()[2] != "created_at" and \
                     args.split()[2] != "updated_at":
-                    # tmpVal = validate_value(args.split()[3])
+                    tmpVal = HBNBCommand.validate_value(args.split()[3])
                     setattr(
                         storage._FileStorage__objects[tmpObj[0]],
                         args.split()[2],
-                        args.split()[3][1:-1]
+                        tmpVal
                     )
                     storage.save()
             else:
@@ -139,10 +141,15 @@ class HBNBCommand(cmd.Cmd):
                 return [key, val]
         return None
 
-    # def validate_value(val):
-    #     if val.startswith("\"") and val.endswith("\""):
-    #         return val[1:-1]
-    #     else:
+    def validate_value(val):
+        val = val[1:-1]
+        if re.match("^\d+?\.\d+?$", val) is None:
+            if val.isdigit():
+                return int(val)
+            else:
+                return val
+        else:
+            return float(val)
 
 
 if __name__ == '__main__':
