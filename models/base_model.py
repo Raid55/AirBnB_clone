@@ -28,10 +28,12 @@ class BaseModel:
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
+        """ Saves object """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
+        """ Turns to dict """
         tmpDict = self.__dict__
         # print(tmpDict)
         tmpDict['created_at'] = tmpDict['created_at'].isoformat()
