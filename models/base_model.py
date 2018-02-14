@@ -3,6 +3,7 @@
 import uuid
 import models
 from datetime import datetime
+from copy import deepcopy
 
 class BaseModel:
     """
@@ -12,16 +13,17 @@ class BaseModel:
         # print(kwargs == {}, "wHAWS")
         if kwargs != {}:
             for key, val in kwargs.items():
+                if key in ["created_at", "updated_at"]:
+                    val = datetime.strptime(val, '%Y-%m-%dT%H:%M:%S.%f')
                 if key != "__class__":
                     setattr(self, key, val)
             # print(self, "lol")
-            self.created_at = datetime.strptime(self.created_at, '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.strptime(self.updated_at, '%Y-%m-%dT%H:%M:%S.%f')
+            # print(self, "lolthereturn")
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-        models.storage.new(self)
+            models.storage.new(self)
         # print(self, "lol???")
 
     def __str__(self):
@@ -34,7 +36,7 @@ class BaseModel:
 
     def to_dict(self):
         """ Turns to dict """
-        tmpDict = self.__dict__
+        tmpDict = deepcopy(self.__dict__)
         # print(tmpDict)
         tmpDict['created_at'] = tmpDict['created_at'].isoformat()
         tmpDict['updated_at'] = tmpDict['updated_at'].isoformat()

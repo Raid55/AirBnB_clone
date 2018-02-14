@@ -5,6 +5,7 @@ import os
 import sys
 import inspect
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     """ Class that handles serializing and deserializing instances"""
@@ -26,7 +27,6 @@ class FileStorage:
             tmpDict[key] = val.to_dict()
         with open(FileStorage.__file_path, 'w+') as f:
             json.dump(tmpDict, f)
-        self.reload()
 
     def reload(self):
         try:
