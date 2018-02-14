@@ -10,10 +10,11 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """ Cmd line interpreter for Hbnbn Proj """
-    prompt = "(hbnb) "
-    __ObjList = [n for n, o, in inspect.getmembers(sys.modules[__name__],
-                                                    inspect.isclass)]
-
+    prompt = "(hbnb)"
+    __ObjList = [n for n, o, in inspect.getmembers(
+        sys.modules[__name__],
+        inspect.isclass
+    )]
 
     def do_create(self, args):
         'Creates and saves a new object ex. $ create MyModel'
@@ -115,7 +116,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
         
-
+    def emptyline(self):
+        pass
     def do_EOF(self, args):
         'Quit command to exit the program'
         return True
