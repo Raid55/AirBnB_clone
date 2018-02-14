@@ -6,7 +6,7 @@
 
 ## Description
 Part of a 4-month, web application project designed to cover the fundamental concepts of higher level programming;
-this first step implements a command interpreter (aka console, shell, CLI) to manage the objects of our project.
+this first step implements a command interpreter (aka console, shell, CLI, etc...) to manage the objects of our project.
 
 ## Environment
 * __OS:__ Ubuntu 14.04 LTS
