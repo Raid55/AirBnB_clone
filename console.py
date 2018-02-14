@@ -77,10 +77,12 @@ class HBNBCommand(cmd.Cmd):
         if args == '':
             print([obj for key, obj in storage.all().items()])
             return
+        # print(storage.all())
         objName = HBNBCommand.parseCheck_ForClass(args)
+        print(objName)
         if objName is not None:
             print([obj for key, obj in storage.all().items() \
-            if obj.__class__ == objName])
+            if key.split('.')[0] == objName])
         else:
             print("** class doesn't exist **")
 
