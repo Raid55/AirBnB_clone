@@ -2,6 +2,8 @@
 """ File storage manager """
 import json
 import os
+import sys
+import inspect
 from models.base_model import BaseModel
 
 class FileStorage:
@@ -18,10 +20,13 @@ class FileStorage:
 
     def save(self):
         tmpDict = {}
+        # for key, val in FileStorage.__objects.items():
+        #     print(key, " \|/ ", val)
         for key, val in FileStorage.__objects.items():
             tmpDict[key] = val.to_dict()
         with open(FileStorage.__file_path, 'w+') as f:
             json.dump(tmpDict, f)
+        self.reload()
 
     def reload(self):
         try:
@@ -33,3 +38,5 @@ class FileStorage:
             pass
         except ValueError:
             pass
+        # for key, val in FileStorage.__objects.items():
+            # print(key, " | ", val)
