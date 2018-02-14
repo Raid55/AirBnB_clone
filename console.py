@@ -10,9 +10,11 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """ Cmd line interpreter for Hbnbn Proj """
-    prompt = "(hbnb) "
-    __ObjList = [n for n, o, in inspect.getmembers(sys.modules[__name__],
-                                                    inspect.isclass)]
+    prompt = "(hbnb)"
+    __ObjList = [n for n, o, in inspect.getmembers(
+        sys.modules[__name__],
+        inspect.isclass
+    )]
 
 
     def do_create(self, args):
