@@ -1,13 +1,18 @@
 #!/usr/bin/python3
 """ Cmd line entry point """
-import cmd
-import sys
-import inspect
-import models
 import re
-from models.base_model import BaseModel
-from models.user import User
+import sys
+import cmd
+import models
+import inspect
 from models import storage
+from models.user import User
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.review import Review
+from models.amenity import Amenity
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -119,6 +124,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
         else:
             print("** class doesn't exist **")
+
+    # def default(self, line):
+    #     print('default({})'.format(line))
+        
         
     def emptyline(self):
         pass
@@ -142,7 +151,6 @@ class HBNBCommand(cmd.Cmd):
             if key == args.split()[0] + '.' + args.split()[1]:
                 return [key, val]
         return None
-
     def validate_value(val):
         val = val[1:-1]
         if re.match("^\d+?\.\d+?$", val) is None:
@@ -152,6 +160,8 @@ class HBNBCommand(cmd.Cmd):
                 return val
         else:
             return float(val)
+
+    # def parse_cmd(line):
 
 
 if __name__ == '__main__':
