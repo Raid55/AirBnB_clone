@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """takes values as strings"""
+    """Review Class"""
     place_id = ""
     user_id = ""
     text = ""
