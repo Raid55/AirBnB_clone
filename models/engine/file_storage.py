@@ -12,6 +12,7 @@ from models.review import Review
 from models.amenity import Amenity
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """ Class that handles serializing and deserializing instances"""
 
@@ -22,7 +23,10 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        self.__objects.update({'{}.{}'.format(obj.__class__.__name__, obj.id): obj})
+        self.__objects.update({'{}.{}'.format(
+            obj.__class__.__name__,
+            obj.id): obj
+        })
 
     def save(self):
         tmpDict = {}
@@ -43,5 +47,3 @@ class FileStorage:
             pass
         except ValueError:
             pass
-        # for key, val in FileStorage.__objects.items():
-            # print(key, " | ", val)

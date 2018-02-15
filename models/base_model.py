@@ -5,6 +5,7 @@ import models
 from datetime import datetime
 from copy import deepcopy
 
+
 class BaseModel:
     """
         Base Model
@@ -27,10 +28,18 @@ class BaseModel:
         # print(self, "lol???")
 
     def __str__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+        )
 
     def __repr__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+        )
 
     def save(self):
         """ Saves object """

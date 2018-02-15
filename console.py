@@ -86,14 +86,14 @@ class HBNBCommand(cmd.Cmd):
         objName = HBNBCommand.parseCheck_ForClass(args)
         print(objName)
         if objName is not None:
-            print([obj for key, obj in storage.all().items() \
-            if key.split('.')[0] == objName])
+            print([obj for key, obj in storage.all().items()
+                  if key.split('.')[0] == objName])
         else:
             print("** class doesn't exist **")
 
     def do_update(self, args):
-        'Updates selected object with key value, \
-        ex. $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"'
+        'Updates selected object with key value, ex. \
+        $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"'
         if args == '':
             print("** class name missing **")
             return
@@ -111,8 +111,8 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                     return
                 if args.split()[2] != "id" and \
-                    args.split()[2] != "created_at" and \
-                    args.split()[2] != "updated_at":
+                        args.split()[2] != "created_at" and \
+                        args.split()[2] != "updated_at":
                     tmpVal = HBNBCommand.validate_value(args.split()[3])
                     setattr(
                         storage._FileStorage__objects[tmpObj[0]],
@@ -127,13 +127,14 @@ class HBNBCommand(cmd.Cmd):
 
     # def default(self, line):
     #     print('default({})'.format(line))
-        
-        
+
     def emptyline(self):
         pass
+
     def do_EOF(self, args):
         'Quit command to exit the program'
         return True
+
     def do_quit(self, args):
         'Quit command to exit the program'
         return True
@@ -141,16 +142,19 @@ class HBNBCommand(cmd.Cmd):
     def parseCheck_ForClass(args):
         'Looks for class name imported to check against args'
         try:
-            return HBNBCommand.__ObjList \
-            [HBNBCommand.__ObjList.index(args.split()[0])]
+            return HBNBCommand.__ObjList[HBNBCommand.__ObjList.index(
+                args.split()[0]
+            )]
         except ValueError:
             return None
+
     def parseCheck_ForId(args):
         'checks for Id in objects in storage'
         for key, val in storage.all().items():
             if key == args.split()[0] + '.' + args.split()[1]:
                 return [key, val]
         return None
+
     def validate_value(val):
         val = val[1:-1]
         if re.match("^\d+?\.\d+?$", val) is None:
@@ -166,39 +170,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    
-# #!/usr/bin/env python3
-# import cmd
-# import sys
-
-
-# class HBNBCommand(cmd.Cmd):
-#     """Subclass of Cmd"""
-#     def __init__(self):
-#         cmd.Cmd.__init__(self)
-#         """custom hbnb prompt"""
-#         self.prompt = '(hbnb) '
-
-#     """send exit signal"""
-#     def do_quit(self, arg):
-#         sys.exit(1)
-
-#     """define quit"""
-#     def help_quit(self):
-#         print('Quit command to exit the program\n')
-
-#     """return EOF signal"""
-#     def do_EOF(self, line):
-#         return True
-
-#     """define EOF"""
-#     def help_EOF(self):
-#         print('Indicate end of input\n')
-
-#     """disable repetition of last command"""
-#     def emptyline(self):
-#         pass
-
-
-# if __name__ == '__main__':
-#     HBNBCommand().cmdloop()
