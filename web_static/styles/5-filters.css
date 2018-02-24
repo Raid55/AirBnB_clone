@@ -13,14 +13,14 @@
     float: left;
     text-align: left;
     margin-left: 30px;
-    padding-top: 17px;
-
 }
 .locations > h3, .amenities > h3 {
     font-weight: 600;
     margin: 0px;
     padding: 0px;
+    margin-top: 15px;
 }
+
 .locations > h4, .amenities > h4 {
     font-weight: 400;
     font-size: 14px;
