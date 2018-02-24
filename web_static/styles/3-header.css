@@ -7,7 +7,7 @@ header {
 header > div {
     height: inherit;
     width: inherit;
-    background: url("../images/logo.png");
+    background: url("./images/logo.png");
     background-repeat: no-repeat;
     margin-left: 20px;
 }

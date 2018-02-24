@@ -1,4 +1,4 @@
-<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/images/logo.png" height="250" width=auto />
+<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/web_static/images/logo.png" height="250" width=auto />
 
 # The AirBnB clone project: Part 1
 
