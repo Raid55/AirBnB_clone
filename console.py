@@ -22,11 +22,13 @@ class HBNBCommand(cmd.Cmd):
         sys.modules[__name__],
         inspect.isclass
     )]
+    # __do_funcs = [(n, o) for n, o in .__dict__.items()]
 
     def do_create(self, args):
+        print(__do_funcs)
         'Creates and saves a new object ex. $ create MyModel'
         if args == '':
-            print("** class name missing **")
+            HBNBCommand.err_noClassName()
             return
         objName = HBNBCommand.parseCheck_ForClass(args)
         if objName is not None:
@@ -34,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
             print(tmpObj.id)
             tmpObj.save()
         else:
-            print("** class doesn't exist **")
+            HBNBCommand.err_noClass()
 
     def do_show(self, args):
         'Fetches and displayed stored obj by id, \
@@ -42,40 +44,40 @@ class HBNBCommand(cmd.Cmd):
         # for key, val in storage._FileStorage__objects.items():
         #     print(key, " /|\ ", val)
         if args == '':
-            print("** class name missing **")
+            HBNBCommand.err_noClassName()
             return
         objName = HBNBCommand.parseCheck_ForClass(args)
         if objName is not None:
             if len(args.split()) <= 1:
-                print("** instance id missing **")
+                HBNBCommand.err_noInstanceId()
                 return
             tmpObj = HBNBCommand.parseCheck_ForId(args)
             if tmpObj is not None:
                 print(tmpObj[1])
             else:
-                print("** no instance found **")
+                HBNBCommand.err_noInstance()
         else:
-            print("** class doesn't exist **")
+            HBNBCommand.err_noClass()
 
     def do_destroy(self, args):
         'Destroys object from object storage list, \
         ex. $ destroy BaseModel 1234-1234-1234'
         if args == '':
-            print("** class name missing **")
+            HBNBCommand.err_noClassName()
             return
         objName = HBNBCommand.parseCheck_ForClass(args)
         if objName is not None:
             if len(args.split()) <= 1:
-                print("** instance id missing **")
+                HBNBCommand.err_noInstanceId()
                 return
             tmpObj = HBNBCommand.parseCheck_ForId(args)
             if tmpObj is not None:
                 del storage._FileStorage__objects[tmpObj[0]]
                 storage.save()
             else:
-                print("** no instance found **")
+                HBNBCommand.err_noInstance()
         else:
-            print("** class doesn't exist **")
+            HBNBCommand.err_noClass()
 
     def do_all(self, args):
         'Prints all objects loaded in storage'
@@ -89,26 +91,26 @@ class HBNBCommand(cmd.Cmd):
             print([obj for key, obj in storage.all().items()
                   if key.split('.')[0] == objName])
         else:
-            print("** class doesn't exist **")
+            HBNBCommand.err_noClass()
 
     def do_update(self, args):
         'Updates selected object with key value, ex. \
         $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"'
         if args == '':
-            print("** class name missing **")
+            HBNBCommand.err_noClassName()
             return
         objName = HBNBCommand.parseCheck_ForClass(args)
         if objName is not None:
             if len(args.split()) <= 1:
-                print("** instance id missing **")
+                HBNBCommand.err_noInstanceId()
                 return
             tmpObj = HBNBCommand.parseCheck_ForId(args)
             if tmpObj is not None:
                 if len(args.split()) <= 2:
-                    print("** attribute name missing **")
+                    HBNBCommand.err_noAttr()
                     return
                 if len(args.split()) <= 3:
-                    print("** value missing **")
+                    HBNBCommand.err_noValue()
                     return
                 if args.split()[2] != "id" and \
                         args.split()[2] != "created_at" and \
@@ -121,9 +123,9 @@ class HBNBCommand(cmd.Cmd):
                     )
                     storage.save()
             else:
-                print("** no instance found **")
+                HBNBCommand.err_noInstance()
         else:
-            print("** class doesn't exist **")
+            HBNBCommand.err_noClass()
 
     # def default(self, line):
     #     print('default({})'.format(line))
@@ -165,7 +167,23 @@ class HBNBCommand(cmd.Cmd):
         else:
             return float(val)
 
-    # def parse_cmd(line):
+    def err_noClass():
+        print("** class doesn't exist **")
+
+    def err_noClassName():
+        print("** class name missing **")
+
+    def err_noInstance():
+        print("** no instance found **")
+
+    def err_noValue():
+        print("** value missing **")
+
+    def err_noAttr():
+        print("** attribute name missing **")
+
+    def err_noInstanceId():
+        print("** instance id missing **")
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/content/HBTN-hbnb-Final.png" height="250" width=auto />
+<img src="https://github.com/notjamesheck/AirBnB_clone/blob/master/images/logo.png" height="250" width=auto />
 
 # The AirBnB clone project: Part 1
 
@@ -9,11 +9,34 @@ Part of a 4-month, web application project designed to cover the fundamental con
 this first step implements a command interpreter (aka console, shell, CLI, etc...) to manage the objects of our project.
 
 ## Environment
-* __OS:__ Ubuntu 14.04 LTS
-* __language:__ Python 3.4.3
+* __OS:__ Ubuntu (14.04 LTS)
+* __language:__ Python (3.4.3)
 * __style:__
   * __python:__ PEP 8 (v. 1.7.0)
-  * __bash:__ ShellCheck 0.3.3
+  * __bash:__ ShellCheck (0.3.3)
+
+## Setup
+
+## Testing
+
+## Execution
+---
+
+# The AirBnB clone project: Part 2
+
+> Web static :zap:
+
+## Description
+Part of a 4-month, web application project designed to cover the fundamental concepts of higher level programming;
+The Second step is to set up a static html and css webpage for the users to interface with.
+
+## Environment
+* __OS:__ Ubuntu (14.04 LTS)
+* __browser__ Chrome (56.0.2924.87)
+* __language:__ HTML5, CSS3
+* __style:__
+  * __css:__ W3C-Validator
+  * __HTML:__ W3C-Validator
 
 ## Setup
 
