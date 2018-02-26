@@ -1,0 +1,50 @@
+.places {
+    padding: 20px;
+}
+
+.places > h1 {
+    font-size: 30px;
+}
+
+.places > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+}
+
+article h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.price_by_night {
+    color: #FF5A5F;
+    border: #FF5A5F 4px round;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+}
+
+.guestIcon, .bedIcon, .bathroomIcon {
+    width: inherit;
+    height: inherit;
+    background-repeat: no-repeat;
+    margin-left: 35px;
+}
+.guestIcon {
+    background: url("../images/guestIcon.png");
+}
+.bedIcon {
+    background: url("../images/bedIcon.png");
+}
+.bathroomIcon {
+    background: url("../images/bathroomIcon.png");
+}
